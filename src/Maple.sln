@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33103.184
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web.Maple.MapleServer", "Server\Web.Maple.MapleServer.csproj", "{73205B41-0D6E-47B0-9584-4DE2D46CCE5A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Maple.Unit.Tests", "Tests\Maple.Unit.Tests\Maple.Unit.Tests.csproj", "{A6867822-B802-4021-91AA-486C32936E12}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{DED29586-1D74-4016-B4A2-FA0CE4E65126}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{6C2E2A68-1EEA-4326-9A92-FB418DF4DD83}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServerConsole_Sample", "Samples\ServerConsole_Sample\ServerConsole_Sample.csproj", "{C7241F9D-CE70-4AD0-B040-4CB95DE16204}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServerSimpleMeadow_Sample", "Samples\ServerSimpleMeadow_Sample\ServerSimpleMeadow_Sample.csproj", "{000B04D6-DF5F-439B-A939-E86610D484F8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{73205B41-0D6E-47B0-9584-4DE2D46CCE5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73205B41-0D6E-47B0-9584-4DE2D46CCE5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73205B41-0D6E-47B0-9584-4DE2D46CCE5A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{73205B41-0D6E-47B0-9584-4DE2D46CCE5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73205B41-0D6E-47B0-9584-4DE2D46CCE5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73205B41-0D6E-47B0-9584-4DE2D46CCE5A}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{A6867822-B802-4021-91AA-486C32936E12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6867822-B802-4021-91AA-486C32936E12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6867822-B802-4021-91AA-486C32936E12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6867822-B802-4021-91AA-486C32936E12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7241F9D-CE70-4AD0-B040-4CB95DE16204}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7241F9D-CE70-4AD0-B040-4CB95DE16204}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7241F9D-CE70-4AD0-B040-4CB95DE16204}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7241F9D-CE70-4AD0-B040-4CB95DE16204}.Release|Any CPU.Build.0 = Release|Any CPU
+		{000B04D6-DF5F-439B-A939-E86610D484F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{000B04D6-DF5F-439B-A939-E86610D484F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{000B04D6-DF5F-439B-A939-E86610D484F8}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{000B04D6-DF5F-439B-A939-E86610D484F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{000B04D6-DF5F-439B-A939-E86610D484F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{000B04D6-DF5F-439B-A939-E86610D484F8}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A6867822-B802-4021-91AA-486C32936E12} = {DED29586-1D74-4016-B4A2-FA0CE4E65126}
+		{C7241F9D-CE70-4AD0-B040-4CB95DE16204} = {6C2E2A68-1EEA-4326-9A92-FB418DF4DD83}
+		{000B04D6-DF5F-439B-A939-E86610D484F8} = {6C2E2A68-1EEA-4326-9A92-FB418DF4DD83}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9C2393A8-C0F2-499C-B803-F63A421A359F}
+	EndGlobalSection
+EndGlobal
