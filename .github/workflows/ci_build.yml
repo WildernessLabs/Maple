@@ -22,4 +22,4 @@ jobs:
           6.0.x
     
     - name: Build Meadow.Core
-      run: dotnet build -c Release src/Web.Maple.MapleServer.sln
+      run: dotnet build -c Release src/Maple.sln
