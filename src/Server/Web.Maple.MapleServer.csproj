@@ -10,9 +10,9 @@
     <PackageIcon>icon.png</PackageIcon>
     <RepositoryUrl>https://github.com/WildernessLabs/Meadow.Foundation</RepositoryUrl>
     <PackageTags>Meadow, Meadow.Foundation, Web, Maple</PackageTags>
-    <Version>0.5.1</Version>
+    <Version>1.0.0</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Description>Maple is an ultra-lightweight RESTful web API Server, built specifically for Meadow. It provides an easy to extend architecture, and has integrated JSON support via System.Text.Json.</Description>
+    <Description>Maple is an ultra-lightweight RESTful web API Server, built specifically for embedded applications. It provides an easy-to-extend architecture based on ASP.NET Core and has integrated JSON support.</Description>
 	  <Nullable>enable</Nullable>
   </PropertyGroup>
   <PropertyGroup>
@@ -27,7 +27,6 @@
     <None Include="..\icon.png" Pack="true" PackagePath="" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="SimpleJson" Version="0.38.0" />
-	  <PackageReference Include="Meadow.Logging" Version="0.*" />
+    <PackageReference Include="Meadow.Logging" Version="0.32.1" />
   </ItemGroup>
 </Project>

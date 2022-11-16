@@ -16,22 +16,33 @@ namespace Maple.ServerSimpleMeadow_Sample
         {
             Console.WriteLine("Initialize...");
 
-            // connnect to the wifi network.
-            var wifi = Device.NetworkAdapters.Primary<IWiFiNetworkAdapter>();
-            Console.WriteLine($"Connecting to WiFi Network {Secrets.WIFI_NAME}");
-            var connectionResult = await wifi.Connect(Secrets.WIFI_NAME, Secrets.WIFI_PASSWORD);
+            IWiFiNetworkAdapter wifi;
 
-            if(connectionResult.ConnectionStatus != ConnectionStatus.Success)
+            // connnect to the wifi network.
+            try
             {
-                throw new Exception($"Cannot connect to network: {connectionResult.ConnectionStatus}");
+                wifi = Device.NetworkAdapters.Primary<IWiFiNetworkAdapter>();
+                Console.WriteLine($"Connecting to WiFi Network {Secrets.WIFI_NAME}");
+                var connectionResult = await wifi.Connect("BOBS_YOUR_UNCLE", "1234567890");
+
+                if (connectionResult.ConnectionStatus != ConnectionStatus.Success)
+                {
+                    throw new Exception($"Cannot connect to network: {connectionResult.ConnectionStatus}");
+                }
+                Console.WriteLine($"Connected. IP: {wifi.IpAddress}");
             }
-            Console.WriteLine($"Connected. IP: {wifi.IpAddress}");
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+                throw;
+            }
 
             // create our maple web server
             server = new MapleServer(
                 wifi.IpAddress,
                 advertise: true,
-                processMode: RequestProcessMode.Parallel
+                processMode: RequestProcessMode.Parallel,
+                logger: Resolver.Log
                 );
         }
 
