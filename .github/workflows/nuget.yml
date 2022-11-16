@@ -19,6 +19,6 @@ jobs:
     - name: Package maple
       run: dotnet pack -c Release src/Server/Web.Maple.MapleServer.csproj /p:Version=${VERSION} --output .
     - name: Push Maple to NuGet
-      run: dotnet nuget push Maple.${VERSION}.nupkg -s https://api.nuget.org/v3/index.json -k ${NUGET_TOKEN}
+      run: dotnet nuget push Meadow.Foundation.Web.Maple.Server.${VERSION}.nupkg -s https://api.nuget.org/v3/index.json -k ${NUGET_TOKEN}
       env:
         NUGET_TOKEN: ${{ secrets.NUGET_TOKEN }}
