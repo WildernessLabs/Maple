@@ -24,6 +24,9 @@ namespace Meadow.Foundation.Web.Maple
 
         private Dictionary<Type, IRequestHandler> _handlerCache = new Dictionary<Type, IRequestHandler>();
         private readonly HttpListener _httpListener = new HttpListener();
+        private bool _isAdvertising;
+        private bool _shouldAdvertise;
+
         private ErrorPageGenerator ErrorPageGenerator { get; }
 
         public Logger? Logger { get; }
@@ -44,7 +47,19 @@ namespace Meadow.Foundation.Web.Maple
         /// Whether or not the server should advertise it's name
         /// and IP via UDP for discovery.
         /// </summary>
-        public bool Advertise { get; protected set; } = false;
+        public bool Advertise
+        {
+            get => _shouldAdvertise;
+            set
+            {
+                if (value && Running)
+                {
+                    StartUdpAdvertisement();
+                }
+
+                _shouldAdvertise = value;
+            }
+        }
 
         /// <summary>
         /// The interval, in milliseconds of how often to advertise.
@@ -179,22 +194,39 @@ namespace Meadow.Foundation.Web.Maple
         /// </summary>
         protected void StartUdpAdvertisement()
         {
+            Logger?.Debug($"StartUdpAdvertisement {_isAdvertising}");
+
+            if (_isAdvertising) return;
+
             Task.Run(() =>
             {
-                using (Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp))
+                try
                 {
-                    EndPoint remoteEndPoint = new IPEndPoint(IPAddress.Parse("255.255.255.255"), MAPLE_SERVER_BROADCASTPORT);
-                    socket.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.Broadcast, true);
+                    _isAdvertising = true;
 
-                    string broadcastData = $"{DeviceName}::{IPAddress}";
-
-                    while (Running)
+                    using (Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp))
                     {
-                        socket.SendTo(UTF8Encoding.UTF8.GetBytes(broadcastData), remoteEndPoint);
-                        Logger?.Info("UDP Broadcast: " + broadcastData + ", port: " + MAPLE_SERVER_BROADCASTPORT);
+                        EndPoint remoteEndPoint = new IPEndPoint(IPAddress.Parse("255.255.255.255"), MAPLE_SERVER_BROADCASTPORT);
+                        socket.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.Broadcast, true);
 
-                        Thread.Sleep(AdvertiseIntervalMs);
+                        string broadcastData = $"{DeviceName}::{IPAddress}";
+
+                        while (Running && _shouldAdvertise)
+                        {
+                            Logger?.Info("UDP Broadcast: " + broadcastData + ", port: " + MAPLE_SERVER_BROADCASTPORT);
+                            socket.SendTo(UTF8Encoding.UTF8.GetBytes(broadcastData), remoteEndPoint);
+
+                            Thread.Sleep(AdvertiseIntervalMs);
+                        }
                     }
+                }
+                catch (Exception e)
+                {
+                    Logger?.Error($"StartUdpAdvertisement error {e.Message}");
+                }
+                finally
+                {
+                    _isAdvertising = false;
                 }
             });
         }
