@@ -7,7 +7,6 @@ on:
     - "v[0-9]+.[0-9]+.[0-9]"
 
 env:
-  version: '0.90.0'
   token: ${{ secrets.NUGET_TOKEN }}
 
 jobs:
@@ -18,18 +17,18 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
     - name: Set VERSION variable from env.version
-      run: echo "VERSION=${{ env.version }}" >> $GITHUB_ENV
+      run: echo "VERSION=${GITHUB_REF/refs\/tags\/v/}" >> $GITHUB_ENV
       
     - uses: ./.github/actions/build-package
       with:
         packageId: Meadow.Foundation.Web.Maple.Client
         path: Source/Web.Maple.MapleClient/Driver/Web.Maple.MapleClient.csproj
-        version: ${{ env.version }}
+        version: ${VERSION}
         token: ${{ env.token }}
 
     - uses: ./.github/actions/build-package
       with:
         packageId: Meadow.Foundation.Web.Maple.Server
         path: Source/Web.Maple.MapleServer/Driver/Web.Maple.MapleServer.csproj
-        version: ${{ env.version }}
+        version: ${VERSION}
         token: ${{ env.token }}
