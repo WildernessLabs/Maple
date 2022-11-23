@@ -8,6 +8,6 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Server\Web.Maple.MapleServer.csproj" />
+    <ProjectReference Include="..\..\Driver\Web.Maple.MapleServer.csproj" />
   </ItemGroup>
 </Project>
