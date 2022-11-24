@@ -1,6 +1,45 @@
-# Meadow Foundation Maple Web Server
+<img src="Design/banner.jpg" style="margin-bottom:10px" />
+
+# Maple
 
 The Maple Web Server is primarily intended to provide RESTful endpoints from a device.  It is modelled after ASP.NET Core and provides an easy to extend architecture with integrated JSON support via `System.Text.Json`.
+
+## Samples
+
+<table>
+    <tr>
+        <td>
+            <img src="Design/MeadowMapleLed.png"/><br/>
+            Control a RGB LED with Meadow and MAUI using REST!</br>
+            <a href="https://github.com/WildernessLabs/Meadow.Project.Samples/tree/main/Source/Hackster/Maple/MeadowMapleLed">Source Code</a>
+        </td>
+        <td>
+            <img src="Design/MeadowMapleServo.png"/><br/>
+            Control a Servo with Meadow and MAUI using Bluetooth<br/>
+            <a href="https://github.com/WildernessLabs/Meadow.Project.Samples/tree/main/Source/Hackster/Maple/MeadowMapleServo">Source Code</a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <img src="Design/maple.png"/><br/>
+            Control a Project Lab board over Wi-Fi with a MAUI app</br>
+            <a href="https://github.com/WildernessLabs/Meadow.ProjectLab.Samples/tree/main/Source/Connectivity">Source Code</a>
+        </td>
+        <td>
+            <img src="Design/OnAir.png"/><br/>
+            Make your own OnAir sign with Meadow and a MAUI mobile application<br/>
+            <a href="https://github.com/WildernessLabs/OnAir_Sign">Source Code</a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+        </td>
+        <td>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+        </td>
+    </tr>
+</table>
 
 ## Creating Web API Endpoints
 
