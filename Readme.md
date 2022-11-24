@@ -47,6 +47,18 @@ The following sample projects are using Maple to control a Meadow board using a 
 
 The Maple Web Server is primarily intended to provide RESTful endpoints from a device. It is modelled after ASP.NET Core and provides an easy to extend architecture with integrated JSON support via System.Text.Json.
 
+### Server Broadcasting
+
+Starting Maple on a Meadow board wont necesarily come with a display, so enabling Maple's discovery feature will broadcast the server's name along with its IP Address accross the network it joined to its easily discoverable by Maple Client's UDP listener built-in.
+
+```csharp
+mapleServer = new MapleServer(
+    ipAddress: wifi.IpAddress, 
+    port: 5417, 
+    advertise: true); // <= Advertise Server over the network
+mapleServer.Start();
+```
+
 ### Creating Web API Endpoints
 
 A web API consists of one or more request handler classes that derive from RequestHandlerBase:
@@ -136,7 +148,6 @@ By default Maple will create a new instance of an API handler for every request 
 
 ```csharp
 public override bool IsReusable => true;
-
 ```
 
 ### Returning an `IActionResult`
@@ -158,5 +169,6 @@ public IActionResult GetJsonList()
 
     return new JsonResult(names);
 }
-
 ```
+
+## Maple Client
