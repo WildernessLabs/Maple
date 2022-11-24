@@ -4,7 +4,9 @@
 
 The Maple Web Server is primarily intended to provide RESTful endpoints from a device.  It is modelled after ASP.NET Core and provides an easy to extend architecture with integrated JSON support via `System.Text.Json`.
 
-## Samples
+## Project Samples
+
+The following sample projects are using Maple to control a Meadow board using a MAUI application. 
 
 <table>
     <tr>
@@ -41,7 +43,11 @@ The Maple Web Server is primarily intended to provide RESTful endpoints from a d
     </tr>
 </table>
 
-## Creating Web API Endpoints
+## Maple Server
+
+The Maple Web Server is primarily intended to provide RESTful endpoints from a device. It is modelled after ASP.NET Core and provides an easy to extend architecture with integrated JSON support via System.Text.Json.
+
+### Creating Web API Endpoints
 
 A web API consists of one or more request handler classes that derive from RequestHandlerBase:
 
@@ -49,13 +55,13 @@ A web API consists of one or more request handler classes that derive from Reque
 public class MyRequestHandler : RequestHandlerBase
 ```
 
-## Attribute Routing
+### Attribute Routing
 
 Maple determines API call routing based on Attribute routing of handler methods.
 
 Routing is supported to either absolute or relative paths.
 
-### Absolute Routing
+#### Absolute Routing
 
 If your route begins with a forward slash (`/`) then it is considered an absolute route, and requests will be routed to the provided route regardless of the Handler class name.  
 
@@ -70,7 +76,7 @@ public class MyRequestHandler : RequestHandlerBase
 }
 ```
 
-### Relative Routing
+#### Relative Routing
 
 If your route *does not* begin with a forward slash (`/`) then it is considered a relative route, and requests will be routed to the provided route prefixed with an appreviated `RequestHandler` prefix.  The route prefix is determined by using the class name and trimming off any "Requesthandler" suffix.
 
@@ -97,7 +103,7 @@ public class WebAPI : RequestHandlerBase
 }
 ```
 
-### Route Parameters
+#### Route Parameters
 
 > NOTE: Maple supports only a *single* parameter in a Route.
 
@@ -124,9 +130,7 @@ Supported parameter types are:
 - DateTime
 - Guid
 
-
-
-## Handler Caching
+### Handler Caching
 
 By default Maple will create a new instance of an API handler for every request received.  If you want your application to reuse the same handler instance, which provides faster handler execution and decreases GC allocation, simply override the `IsResuable` base property and return `true`.
 
@@ -135,7 +139,7 @@ public override bool IsReusable => true;
 
 ```
 
-## Returning an `IActionResult`
+### Returning an `IActionResult`
 
 It is recommended that all Handler methods return an `IActionResult` implementation.  Extension methods are provided by Maple for common return objects including, but not limited to, `ActionResult`, `JsonResult`, `OkResult` and `NotFoundResult`.
 
