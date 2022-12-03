@@ -150,7 +150,7 @@ Maple Client is a convenience library intended to easily discover Maple servers 
 
 Its dependency is .NET Standard 2.0, so it compatible with all sorts of .NET mobile and desktop apps built using Xamarin, WPF and even MAUI.
 
-[image here]
+<img src="Design/MobileLed.jpg" style="margin-bottom:10px" />
 
 ### Looking for Maple Servers
 
@@ -223,9 +223,9 @@ The following sample projects are using Maple to control a Meadow board using a 
     </tr>
     <tr>
         <td>
-            <a href="https://github.com/WildernessLabs/Meadow.ProjectLab.Samples/tree/main/Source/Connectivity"><img src="Design/maple.png"/></a><br/>
+            <a href="https://github.com/WildernessLabs/Meadow.ProjectLab.Samples"><img src="Design/maple.png"/></a><br/>
             Control a Project Lab board over Wi-Fi with a MAUI app</br>
-            <a href="https://github.com/WildernessLabs/Meadow.ProjectLab.Samples/tree/main/Source/Connectivity">Source Code</a>
+            <a href="https://github.com/WildernessLabs/Meadow.ProjectLab.Samples">Source Code</a>
         </td>
         <td>
             <a href="https://www.hackster.io/wilderness-labs/make-your-own-onair-sign-with-meadow-and-xamarin-ea0c9e"><img src="Design/OnAir.png"/></a><br/>
@@ -233,9 +233,9 @@ The following sample projects are using Maple to control a Meadow board using a 
             <a href="https://www.hackster.io/wilderness-labs/make-your-own-onair-sign-with-meadow-and-xamarin-ea0c9e">Hackster</a> | <a href="https://github.com/WildernessLabs/OnAir_Sign">Source Code</a>
         </td>
         <td>
-            <a href="https://github.com/WildernessLabs/Meadow.ProjectLab.Samples/tree/main/Source/Connectivity"><img src="Design/ClimaHackKit.jpg"/></a><br/>
-            Control a Project Lab board over Wi-Fi with a MAUI app</br>
-            <a href="https://github.com/WildernessLabs/Meadow.ProjectLab.Samples/tree/main/Source/Connectivity">Source Code</a>
+            <a href="https://github.com/WildernessLabs/Clima"><img src="Design/ClimaHackKit.jpg"/></a><br/>
+            Get Weather data via Wi-Fi with a MAUI app and a Clima Kit</br>
+            <a href="https://github.com/WildernessLabs/Climay">Source Code</a>
         </td>
     </tr>
     <tr>
