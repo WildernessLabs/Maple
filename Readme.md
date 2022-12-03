@@ -2,46 +2,12 @@
 
 # Maple
 
-The Maple Web Server is primarily intended to provide RESTful endpoints from a device.  It is modelled after ASP.NET Core and provides an easy to extend architecture with integrated JSON support via `System.Text.Json`.
+Maple makes it easy to build connected devices with Meadow by exposing control via a Web API. Maple is an ultra-lightweight, JSON enabled, RESTful web server. It also has an advertise feature, meaning that you could discover Maple servers in your network by listening to UDP broadcast messages with its name and IP Address.
 
-## Project Samples
-
-The following sample projects are using Maple to control a Meadow board using a MAUI application. 
-
-<table>
-    <tr>
-        <td>
-            <img src="Design/MeadowMapleLed.png"/><br/>
-            Control a RGB LED with Meadow and MAUI using REST!</br>
-            <a href="https://github.com/WildernessLabs/Meadow.Project.Samples/tree/main/Source/Hackster/Maple/MeadowMapleLed">Source Code</a>
-        </td>
-        <td>
-            <img src="Design/MeadowMapleServo.png"/><br/>
-            Control a Servo with Meadow and MAUI using Bluetooth<br/>
-            <a href="https://github.com/WildernessLabs/Meadow.Project.Samples/tree/main/Source/Hackster/Maple/MeadowMapleServo">Source Code</a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <img src="Design/maple.png"/><br/>
-            Control a Project Lab board over Wi-Fi with a MAUI app</br>
-            <a href="https://github.com/WildernessLabs/Meadow.ProjectLab.Samples/tree/main/Source/Connectivity">Source Code</a>
-        </td>
-        <td>
-            <img src="Design/OnAir.png"/><br/>
-            Make your own OnAir sign with Meadow and a MAUI mobile application<br/>
-            <a href="https://github.com/WildernessLabs/OnAir_Sign">Source Code</a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-        </td>
-        <td>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-        </td>
-    </tr>
-</table>
+## Contents
+* [Maple Server](#maple-server)
+* [Maple Client](#maple-client)
+* [Project Samples](#project-samples)
 
 ## Maple Server
 
@@ -172,3 +138,50 @@ public IActionResult GetJsonList()
 ```
 
 ## Maple Client
+
+Maple Client is a convenience library intended to easily discover Maple servers over the network with their advertise feature turned on, and also send GET/POST request seamlessly to control a peripheral like a servo, or get data logs from environmental sensors.
+
+Its dependency is .NET Standard 2.0, so it compatible with all sorts of .NET mobile and desktop apps built using Xamarin, WPF and even MAUI.
+
+<img src="Design/MobileLed.jpg" style="margin-bottom:10px" />
+
+### Looking for Maple Servers
+
+## Project Samples
+
+The following sample projects are using Maple to control a Meadow board using a MAUI application. 
+
+<table>
+    <tr>
+        <td>
+            <img src="Design/MeadowMapleLed.png"/><br/>
+            Control a RGB LED with Meadow and MAUI using REST!</br>
+            <a href="https://github.com/WildernessLabs/Meadow.Project.Samples/tree/main/Source/Hackster/Maple/MeadowMapleLed">Source Code</a>
+        </td>
+        <td>
+            <img src="Design/MeadowMapleServo.png"/><br/>
+            Control a Servo with Meadow and MAUI using REST<br/>
+            <a href="https://github.com/WildernessLabs/Meadow.Project.Samples/tree/main/Source/Hackster/Maple/MeadowMapleServo">Source Code</a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <img src="Design/maple.png"/><br/>
+            Control a Project Lab board over Wi-Fi with a MAUI app</br>
+            <a href="https://github.com/WildernessLabs/Meadow.ProjectLab.Samples/tree/main/Source/Connectivity">Source Code</a>
+        </td>
+        <td>
+            <img src="Design/OnAir.png"/><br/>
+            Make your own OnAir sign with Meadow and a MAUI mobile application<br/>
+            <a href="https://github.com/WildernessLabs/OnAir_Sign">Source Code</a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+        </td>
+        <td>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+        </td>
+    </tr>
+</table>
