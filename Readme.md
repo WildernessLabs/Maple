@@ -208,17 +208,17 @@ The following sample projects are using Maple to control a Meadow board using a 
         <td>
             <a href="https://www.hackster.io/wilderness-labs/remotely-control-an-rgb-led-with-meadow-and-xamarin-w-rest-153a28"><img src="Design/MeadowMapleLed.png"/></a><br/>
             Control a RGB LED with Meadow and MAUI using REST</br>
-            <a href="https://www.hackster.io/wilderness-labs/remotely-control-an-rgb-led-with-meadow-and-xamarin-w-rest-153a28">Hackster</a> | <a href="Source/Hackster/Maple/MeadowMapleLed/">Source Code</a>
+            <a href="https://www.hackster.io/wilderness-labs/remotely-control-an-rgb-led-with-meadow-and-xamarin-w-rest-153a28">Hackster</a> | <a href="https://github.com/WildernessLabs/Meadow.Project.Samples/tree/main/Source/Hackster/Maple/MeadowMapleLed">Source Code</a>
         </td>
         <td>
             <a href="https://www.hackster.io/wilderness-labs/remote-control-a-servo-with-meadow-and-xamarin-using-rest-063cb0"><img src="Design/MeadowMapleServo.png"/></a><br/>
             Control a Servo with Meadow and MAUI using REST</br>
-            <a href="https://www.hackster.io/wilderness-labs/remote-control-a-servo-with-meadow-and-xamarin-using-rest-063cb0">Hackster</a> | <a href="Source/Hackster/Maple/MeadowMapleServo/">Source Code</a>
+            <a href="https://www.hackster.io/wilderness-labs/remote-control-a-servo-with-meadow-and-xamarin-using-rest-063cb0">Hackster</a> | <a href="https://github.com/WildernessLabs/Meadow.Project.Samples/tree/main/Source/Hackster/Maple/MeadowMapleServo">Source Code</a>
         </td>
         <td>
             <a href="https://www.hackster.io/wilderness-labs/get-temperature-logs-with-meadow-and-maui-using-rest-e529df"><img src="Design/MeadowMapleTemperature.png"/></a><br/>
             Get temperature logs with Meadow and MAUI using REST</br>
-            <a href="https://www.hackster.io/wilderness-labs/get-temperature-logs-with-meadow-and-maui-using-rest-e529df">Hackster</a> | <a href="Source/Hackster/Maple/MeadowMapleTemperature/">Source Code</a>
+            <a href="https://www.hackster.io/wilderness-labs/get-temperature-logs-with-meadow-and-maui-using-rest-e529df">Hackster</a> | <a href="https://github.com/WildernessLabs/Meadow.Project.Samples/tree/main/Source/Hackster/Maple/MeadowMapleTemperature">Source Code</a>
         </td>
     </tr>
     <tr>
@@ -235,7 +235,7 @@ The following sample projects are using Maple to control a Meadow board using a 
         <td>
             <a href="https://github.com/WildernessLabs/Clima"><img src="Design/ClimaHackKit.jpg"/></a><br/>
             Get Weather data via Wi-Fi with a MAUI app and a Clima Kit</br>
-            <a href="https://github.com/WildernessLabs/Climay">Source Code</a>
+            <a href="https://github.com/WildernessLabs/Clima">Source Code</a>
         </td>
     </tr>
     <tr>
