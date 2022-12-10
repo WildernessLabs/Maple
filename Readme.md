@@ -235,7 +235,7 @@ The following sample projects are using Maple to control a Meadow board using a 
         <td>
             <a href="https://github.com/WildernessLabs/Clima"><img src="Design/ClimaHackKit.jpg"/></a><br/>
             Get Weather data via Wi-Fi with a MAUI app and a Clima Kit</br>
-            <a href="https://github.com/WildernessLabs/Climay">Source Code</a>
+            <a href="https://github.com/WildernessLabs/Clima">Source Code</a>
         </td>
     </tr>
     <tr>
