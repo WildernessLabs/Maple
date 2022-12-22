@@ -8,7 +8,6 @@ on:
 
 jobs:
   build:
-
     runs-on: windows-latest
     
     steps:
@@ -21,5 +20,5 @@ jobs:
         dotnet-version:
           6.0.x
     
-    - name: Build Meadow.Core
-      run: dotnet build -c Release src/Maple.sln
+    - name: Build Maple
+      run: dotnet build -c Release Source/Maple.sln
