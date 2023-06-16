@@ -1,6 +1,7 @@
 ﻿using Meadow.Logging;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -431,24 +432,79 @@ namespace Meadow.Foundation.Web.Maple
                     }
                 }
 
-                try
-                {
-                    if (typeof(IActionResult).IsAssignableFrom(handlerInfo.Method.ReturnType))
-                    {
-                        var result = handlerInfo.Method.Invoke(handlerInstance, paramObjects.Count > 0 ? paramObjects.ToArray() : null) as IActionResult;
-                        await result.ExecuteResultAsync(context);
-                    }
-                    else
-                    {
-                        handlerInfo.Method.Invoke(handlerInstance, paramObjects.Count > 0 ? paramObjects.ToArray() : null);
-                    }
+                var shouldContinueProcessing = true;
 
-                    context.Response.Close();
-                }
-                catch (Exception ex)
+                // does the method have any [FromQuery] parameters?
+                // dev note: this is fairly naieve.  If a handler had overloads of the same method with different numbers of params, we break.
+                foreach (var parm in handlerInfo.Method.GetParameters().Where(p => p.CustomAttributes.Any(a => a.AttributeType.Equals(typeof(FromQueryAttribute)))))
                 {
-                    Logger?.Error(ex.Message);
-                    await ErrorPageGenerator.SendErrorPage(context, 500, ex);
+                    var value = handlerInstance.Context.Request.QueryString[parm.Name];
+
+                    try
+                    {
+                        object? po;
+
+                        if (value == null)
+                        {
+                            if (parm.HasDefaultValue)
+                            {
+                                po = parm.DefaultValue;
+                            }
+                            else
+                            {
+                                po = parm.ParameterType.IsValueType ? Activator.CreateInstance(parm.ParameterType) : null;
+                            }
+                        }
+                        else
+                        {
+                            // first see if we can get a type converter for the param (i.e. value types)
+                            var tc = TypeDescriptor.GetConverter(parm.ParameterType);
+                            po = tc.ConvertFromString(value);
+                        }
+
+                        paramObjects.Add(po);
+                    }
+                    catch (ArgumentException)
+                    {
+                        // could not convert supplied parameter to method parameter type
+                        if (parm.HasDefaultValue)
+                        {
+                            paramObjects.Add(parm.DefaultValue);
+                        }
+                        else
+                        {
+                            paramObjects.Add(parm.ParameterType.IsValueType ? Activator.CreateInstance(parm.ParameterType) : null);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        await ErrorPageGenerator.SendErrorPage(context, 500, "Unable to find correct method for the supplied query parameters");
+                        shouldContinueProcessing = false;
+                        break;
+                    }
+                }
+
+                if (shouldContinueProcessing)
+                {
+                    try
+                    {
+                        if (typeof(IActionResult).IsAssignableFrom(handlerInfo.Method.ReturnType))
+                        {
+                            var result = handlerInfo.Method.Invoke(handlerInstance, paramObjects.Count > 0 ? paramObjects.ToArray() : null) as IActionResult;
+                            await result.ExecuteResultAsync(context);
+                        }
+                        else
+                        {
+                            handlerInfo.Method.Invoke(handlerInstance, paramObjects.Count > 0 ? paramObjects.ToArray() : null);
+                        }
+
+                        context.Response.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        Logger?.Error(ex.Message);
+                        await ErrorPageGenerator.SendErrorPage(context, 500, ex);
+                    }
                 }
 
                 // if the handler is not reusable, clean up
