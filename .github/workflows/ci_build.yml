@@ -30,4 +30,4 @@ jobs:
           6.0.x
     
     - name: Build Maple
-      run: dotnet build -c Release Source/Maple.sln
+      run: dotnet build -c Release Maple/Source/Maple.sln
