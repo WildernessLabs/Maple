@@ -1,9 +1,8 @@
-﻿using System;
+﻿using Meadow.Foundation.Web.Maple;
+using Meadow.Foundation.Web.Maple.Routing;
+using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Threading;
-using Meadow.Foundation.Web.Maple;
-using Meadow.Foundation.Web.Maple.Routing;
 
 namespace Maple.ServerBasic_Sample.RequestHandlers
 {
@@ -28,7 +27,7 @@ namespace Maple.ServerBasic_Sample.RequestHandlers
             Console.WriteLine("GET::Hello");
 
             //example of multiple params 
-            if(QueryString.Count == 1)
+            if (QueryString.Count == 1)
             {
                 string name = QueryString["name"];
                 return new OkObjectResult($"hello, {name}");
@@ -57,7 +56,7 @@ namespace Maple.ServerBasic_Sample.RequestHandlers
         }
 
         [HttpPost("/hello")]
-        public IActionResult HelloPost() 
+        public IActionResult HelloPost()
         {
             string name = Body;
 
@@ -78,6 +77,30 @@ namespace Maple.ServerBasic_Sample.RequestHandlers
         public IActionResult ParameterPost(int id)
         {
             Console.WriteLine($"/HelloPost - id:{id}");
+
+            return new OkResult();
+        }
+
+        //[HttpGet("/foo")]
+        //public IActionResult GetWith1QP([FromQuery] int count)
+        //{
+        //    Console.WriteLine($"/Hello Get - count:{count}");
+
+        //    return new OkResult();
+        //}
+
+        [HttpGet("/foo1")]
+        public IActionResult GetWith1QP([FromQuery] double test = 43.4)
+        {
+            Console.WriteLine($"/Hello Get - test:{test}");
+
+            return new OkResult();
+        }
+
+        [HttpGet("/foo2")]
+        public IActionResult GetWith2QP([FromQuery] int count = 12, [FromQuery] string name = "jimmay")
+        {
+            Console.WriteLine($"/Hello Get - count:{count} name:{name}");
 
             return new OkResult();
         }

@@ -47,6 +47,7 @@ namespace Meadow.Foundation.Web.Maple
             {
                 context.Response.ContentLength64 = data.Length;
                 await data.CopyToAsync(context.Response.OutputStream);
+                data.Close();
             }
             context.Response.Close();
         }
