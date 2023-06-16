@@ -1,18 +1,27 @@
-name: CI Build
+name: CI Build (develop)
 
 on:
   workflow_dispatch:
   push:
   pull_request:
-    branches: [ main, develop ]
+    branches: [ develop ]
 
 jobs:
   build:
     runs-on: windows-latest
     
     steps:
-    - name: Checkout Maple code
+    - name: Checkout Meadow.Logging
       uses: actions/checkout@v3
+      with:
+        repository: WildernessLabs/Meadow.Logging
+        path: Meadow.Logging
+        ref: develop
+        
+    - name: Checkout Maple
+      uses: actions/checkout@v3
+      with:
+        path: Maple
       
     - name: Setup .NET SDK
       uses: actions/setup-dotnet@v1
