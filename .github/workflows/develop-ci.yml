@@ -1,13 +1,14 @@
-name: CI Build (develop)
+name: Develop Build
 
 on:
   workflow_dispatch:
-  push:
   pull_request:
-    branches: [ develop ]
+  push:
+      branches: [ develop ]
 
 jobs:
   build:
+
     runs-on: windows-latest
     
     steps:
@@ -22,12 +23,13 @@ jobs:
       uses: actions/checkout@v3
       with:
         path: Maple
+        ref: develop
       
     - name: Setup .NET SDK
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version:
-          6.0.x
+          7.0.x
     
     - name: Build Maple
       run: dotnet build -c Release Maple/Source/Maple.sln
