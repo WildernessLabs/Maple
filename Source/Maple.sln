@@ -1,4 +1,4 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33103.184
@@ -30,10 +30,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServerSimpleMeadow_Sample", "Web.Maple.MapleServer\Samples\ServerSimpleMeadow_Sample\ServerSimpleMeadow_Sample.csproj", "{29C0635C-EF7C-46CE-A318-69A2C5C4A5E6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Maple.Unit.Tests", "Web.Maple.MapleServer\Tests\Maple.Unit.Tests\Maple.Unit.Tests.csproj", "{3DB04B8A-7FF4-42A1-8140-29E6BAB70A44}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_External", "_External", "{53F016AC-D7C5-4716-8B81-AA0A2BF4D29F}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Meadow.Logging", "..\..\Meadow.Logging\Source\Meadow.Logging\lib\Meadow.Logging.csproj", "{1F602775-FB43-41CD-8E41-902E4D3738C9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maple.Server_UDP_Listener_Sample", "Web.Maple.MapleServer\Utilities\Maple.Server_UDP_Listener_Sample\Maple.Server_UDP_Listener_Sample.csproj", "{81B3AC84-B179-4D46-8009-34C2FC7385DF}"
 EndProject
@@ -71,10 +67,6 @@ Global
 		{3DB04B8A-7FF4-42A1-8140-29E6BAB70A44}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3DB04B8A-7FF4-42A1-8140-29E6BAB70A44}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3DB04B8A-7FF4-42A1-8140-29E6BAB70A44}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1F602775-FB43-41CD-8E41-902E4D3738C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1F602775-FB43-41CD-8E41-902E4D3738C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1F602775-FB43-41CD-8E41-902E4D3738C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1F602775-FB43-41CD-8E41-902E4D3738C9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{81B3AC84-B179-4D46-8009-34C2FC7385DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{81B3AC84-B179-4D46-8009-34C2FC7385DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81B3AC84-B179-4D46-8009-34C2FC7385DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -96,7 +88,6 @@ Global
 		{4D68707E-6AB5-4716-86B8-3A1AF3893562} = {6409E93C-888B-40D9-BFC3-A2AA8E9330B5}
 		{29C0635C-EF7C-46CE-A318-69A2C5C4A5E6} = {6409E93C-888B-40D9-BFC3-A2AA8E9330B5}
 		{3DB04B8A-7FF4-42A1-8140-29E6BAB70A44} = {D15389D9-AD11-4877-B130-9EDD0C5D2790}
-		{1F602775-FB43-41CD-8E41-902E4D3738C9} = {53F016AC-D7C5-4716-8B81-AA0A2BF4D29F}
 		{81B3AC84-B179-4D46-8009-34C2FC7385DF} = {07308F3E-7D78-4E19-A98B-CC1EDB6E8644}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
