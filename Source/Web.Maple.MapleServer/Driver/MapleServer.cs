@@ -340,23 +340,26 @@ namespace Meadow.Foundation.Web.Maple
             IRequestHandler target;
             shouldDispose = false;
 
-            if (_handlerCache.ContainsKey(handlerType))
+            lock (_handlerCache)
             {
-                target = _handlerCache[handlerType];
-            }
-            else
-            {
-                // instantiate the handler, set the context (which contains all the request info)
-                target = Activator.CreateInstance(handlerType) as IRequestHandler;
-
-                if (target.IsReusable)
+                if (_handlerCache.ContainsKey(handlerType))
                 {
-                    // cache for later use
-                    _handlerCache.Add(handlerType, target);
+                    target = _handlerCache[handlerType];
                 }
                 else
                 {
-                    shouldDispose = true;
+                    // instantiate the handler, set the context (which contains all the request info)
+                    target = Activator.CreateInstance(handlerType) as IRequestHandler;
+
+                    if (target.IsReusable)
+                    {
+                        // cache for later use
+                        _handlerCache.Add(handlerType, target);
+                    }
+                    else
+                    {
+                        shouldDispose = true;
+                    }
                 }
             }
 
