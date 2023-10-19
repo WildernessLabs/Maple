@@ -51,6 +51,7 @@ jobs:
     - name: Checkout Meadow.Core
       uses: actions/checkout@v3
       with:
+        repository: WildernessLabs/Meadow.Core
         path: Meadow.Core
         ref: develop
         
