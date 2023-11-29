@@ -10,9 +10,10 @@ namespace Meadow.Foundation.Web.Maple
         public string ContentType { get; set; }
         public int? StatusCode { get; set; }
 
-        public ContentResult()
+        public ContentResult(string content = "", string contentType = "text/plain")
         {
-
+            Content = content;
+            ContentType = contentType;
         }
 
         public override void ExecuteResult(HttpListenerContext context)
