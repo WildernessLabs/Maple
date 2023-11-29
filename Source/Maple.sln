@@ -1,3 +1,4 @@
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33103.184
@@ -30,7 +31,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServerSimpleMeadow_Sample",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Maple.Unit.Tests", "Web.Maple.MapleServer\Tests\Maple.Unit.Tests\Maple.Unit.Tests.csproj", "{3DB04B8A-7FF4-42A1-8140-29E6BAB70A44}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maple.Server_UDP_Listener_Sample", "Web.Maple.MapleServer\Utilities\Maple.Server_UDP_Listener_Sample\Maple.Server_UDP_Listener_Sample.csproj", "{81B3AC84-B179-4D46-8009-34C2FC7385DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Maple.Server_UDP_Listener_Sample", "Web.Maple.MapleServer\Utilities\Maple.Server_UDP_Listener_Sample\Maple.Server_UDP_Listener_Sample.csproj", "{4212371D-B79B-4961-A868-BD8A95351449}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,7 +49,6 @@ Global
 		{4BCEE20A-9B50-4071-878D-B964CD8523DB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C9E324F7-9757-4F96-8079-52072A322805}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C9E324F7-9757-4F96-8079-52072A322805}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C9E324F7-9757-4F96-8079-52072A322805}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{C9E324F7-9757-4F96-8079-52072A322805}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C9E324F7-9757-4F96-8079-52072A322805}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C9E324F7-9757-4F96-8079-52072A322805}.Release|Any CPU.Deploy.0 = Release|Any CPU
@@ -58,7 +58,6 @@ Global
 		{4D68707E-6AB5-4716-86B8-3A1AF3893562}.Release|Any CPU.Build.0 = Release|Any CPU
 		{29C0635C-EF7C-46CE-A318-69A2C5C4A5E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{29C0635C-EF7C-46CE-A318-69A2C5C4A5E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{29C0635C-EF7C-46CE-A318-69A2C5C4A5E6}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{29C0635C-EF7C-46CE-A318-69A2C5C4A5E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29C0635C-EF7C-46CE-A318-69A2C5C4A5E6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{29C0635C-EF7C-46CE-A318-69A2C5C4A5E6}.Release|Any CPU.Deploy.0 = Release|Any CPU
@@ -66,10 +65,10 @@ Global
 		{3DB04B8A-7FF4-42A1-8140-29E6BAB70A44}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3DB04B8A-7FF4-42A1-8140-29E6BAB70A44}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3DB04B8A-7FF4-42A1-8140-29E6BAB70A44}.Release|Any CPU.Build.0 = Release|Any CPU
-		{81B3AC84-B179-4D46-8009-34C2FC7385DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{81B3AC84-B179-4D46-8009-34C2FC7385DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{81B3AC84-B179-4D46-8009-34C2FC7385DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{81B3AC84-B179-4D46-8009-34C2FC7385DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4212371D-B79B-4961-A868-BD8A95351449}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4212371D-B79B-4961-A868-BD8A95351449}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4212371D-B79B-4961-A868-BD8A95351449}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4212371D-B79B-4961-A868-BD8A95351449}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -87,7 +86,7 @@ Global
 		{4D68707E-6AB5-4716-86B8-3A1AF3893562} = {6409E93C-888B-40D9-BFC3-A2AA8E9330B5}
 		{29C0635C-EF7C-46CE-A318-69A2C5C4A5E6} = {6409E93C-888B-40D9-BFC3-A2AA8E9330B5}
 		{3DB04B8A-7FF4-42A1-8140-29E6BAB70A44} = {D15389D9-AD11-4877-B130-9EDD0C5D2790}
-		{81B3AC84-B179-4D46-8009-34C2FC7385DF} = {07308F3E-7D78-4E19-A98B-CC1EDB6E8644}
+		{4212371D-B79B-4961-A868-BD8A95351449} = {07308F3E-7D78-4E19-A98B-CC1EDB6E8644}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9C2393A8-C0F2-499C-B803-F63A421A359F}
