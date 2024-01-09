@@ -13,7 +13,7 @@
     <Version>1.7.0</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>Maple is an ultra-lightweight RESTful web API Server, built specifically for embedded applications. It provides an easy-to-extend architecture based on ASP.NET Core and has integrated JSON support.</Description>
-	  <Nullable>enable</Nullable>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
   <PropertyGroup>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
