@@ -24,6 +24,6 @@
     <None Include="..\icon.png" Pack="true" PackagePath="" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Meadow.Logging" Version="1.9.0" />
+    <PackageReference Include="Meadow.Logging" Version="1.10.0" />
   </ItemGroup>
 </Project>
