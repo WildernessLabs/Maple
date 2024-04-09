@@ -1,4 +1,5 @@
-﻿using Meadow.Logging;
+﻿using Meadow.Foundation.Serialization;
+using Meadow.Logging;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -429,7 +430,8 @@ namespace Meadow.Foundation.Web.Maple
                         }
                         else
                         {
-                            var o = SimpleJson.SimpleJson.DeserializeObject(json, p.ParameterType);
+                            //var o = SimpleJson.SimpleJson.DeserializeObject(json, p.ParameterType);
+                            var o = MicroJson.Deserialize(json, p.ParameterType);
                             paramObjects.Add(o);
                         }
                     }

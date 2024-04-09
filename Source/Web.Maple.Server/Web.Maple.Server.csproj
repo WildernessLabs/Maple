@@ -24,6 +24,7 @@
     <None Include="..\icon.png" Pack="true" PackagePath="" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Meadow.Foundation\Source\Meadow.Foundation.Libraries_and_Frameworks\Serialization.MicroJson\Driver\Serialization.MicroJson.csproj" />
     <ProjectReference Include="..\..\..\Meadow.Logging\Source\Meadow.Logging\lib\Meadow.Logging.csproj" />
   </ItemGroup>
 </Project>

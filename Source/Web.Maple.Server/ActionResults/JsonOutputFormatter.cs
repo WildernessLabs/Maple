@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using Meadow.Foundation.Serialization;
+using System.Text;
 
 namespace Meadow.Foundation.Web.Maple
 {
@@ -7,7 +8,8 @@ namespace Meadow.Foundation.Web.Maple
         public byte[] FormatContent(object content)
         {
             // TODO: creating the strategy on every call seems like bad form
-            var json = SimpleJson.SimpleJson.SerializeObject(content, new MapleSerializationStrategy());
+            //var json = SimpleJson.SimpleJson.SerializeObject(content, new MapleSerializationStrategy());
+            var json = MicroJson.Serialize(content);
             return Encoding.UTF8.GetBytes(json);
         }
     }

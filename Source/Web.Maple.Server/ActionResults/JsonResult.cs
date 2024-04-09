@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Meadow.Foundation.Serialization;
+using System;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,7 +18,7 @@ namespace Meadow.Foundation.Web.Maple
     {
         public int? StatusCode { get; set; }
         public object Value { get; set; }
-        
+
         public JsonResult(object value)
         {
             Value = value;
@@ -34,7 +35,8 @@ namespace Meadow.Foundation.Web.Maple
             context.Response.ContentType = ContentTypes.Application_Json;
 
             // TODO: creating the strategy on every call seems like bad form
-            var json = SimpleJson.SimpleJson.SerializeObject(Value, new MapleSerializationStrategy());
+            //var json = SimpleJson.SimpleJson.SerializeObject(Value, new MapleSerializationStrategy());
+            var json = MicroJson.Serialize(Value);
             var binaryContent = Encoding.UTF8.GetBytes(json);
             await WriteOutputStream(context, binaryContent);
         }

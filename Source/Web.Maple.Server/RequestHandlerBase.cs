@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Meadow.Foundation.Serialization;
+using System;
 using System.Collections.Specialized;
 using System.Net;
 using System.Text;
@@ -31,7 +32,7 @@ namespace Meadow.Foundation.Web.Maple
             {
                 _context = value;
                 var i = _context.Request.RawUrl.IndexOf('?');
-                if(i >= 0)
+                if (i >= 0)
                 {
                     var q = _context.Request.RawUrl.Substring(i + 1);
                     QueryString = ParseUrlPairs(q);
@@ -39,7 +40,7 @@ namespace Meadow.Foundation.Web.Maple
             }
         }
 
-        protected string Body 
+        protected string Body
         {
             get
             {
@@ -54,7 +55,7 @@ namespace Meadow.Foundation.Web.Maple
             }
         }
 
-        protected StringDictionary FormFields 
+        protected StringDictionary FormFields
         {
             get
             {
@@ -127,7 +128,8 @@ namespace Meadow.Foundation.Web.Maple
             if (Context.Response.ContentType == ContentTypes.Application_Json)
             {
                 // TODO: creating the strategy on every call seems like bad form
-                var json = SimpleJson.SimpleJson.SerializeObject(output, new MapleSerializationStrategy());
+                //var json = SimpleJson.SimpleJson.SerializeObject(output, new MapleSerializationStrategy());
+                var json = MicroJson.Serialize(output);
                 await WriteOutputStream(Encoding.UTF8.GetBytes(json));
             }
             else

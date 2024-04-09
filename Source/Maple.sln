@@ -41,6 +41,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Maple.Unit.Tests", "Tests\M
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Maple.Server_UDP_Listener_Sample", "Utilities\Maple.Server_UDP_Listener_Sample.csproj", "{24F4E20B-9625-48E9-8C8D-EEA5D8AB1C3B}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Serialization.MicroJson", "..\..\Meadow.Foundation\Source\Meadow.Foundation.Libraries_and_Frameworks\Serialization.MicroJson\Driver\Serialization.MicroJson.csproj", "{512E5254-7C97-4979-94F2-96BD8C7C302A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +95,10 @@ Global
 		{24F4E20B-9625-48E9-8C8D-EEA5D8AB1C3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24F4E20B-9625-48E9-8C8D-EEA5D8AB1C3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24F4E20B-9625-48E9-8C8D-EEA5D8AB1C3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{512E5254-7C97-4979-94F2-96BD8C7C302A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{512E5254-7C97-4979-94F2-96BD8C7C302A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{512E5254-7C97-4979-94F2-96BD8C7C302A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{512E5254-7C97-4979-94F2-96BD8C7C302A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -114,6 +120,7 @@ Global
 		{4FA6FFE8-AF53-4E01-B32E-0CB659A89775} = {6409E93C-888B-40D9-BFC3-A2AA8E9330B5}
 		{3C38E17C-EF69-4AD1-87CB-0B1001D660B1} = {D15389D9-AD11-4877-B130-9EDD0C5D2790}
 		{24F4E20B-9625-48E9-8C8D-EEA5D8AB1C3B} = {07308F3E-7D78-4E19-A98B-CC1EDB6E8644}
+		{512E5254-7C97-4979-94F2-96BD8C7C302A} = {53F016AC-D7C5-4716-8B81-AA0A2BF4D29F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9C2393A8-C0F2-499C-B803-F63A421A359F}
