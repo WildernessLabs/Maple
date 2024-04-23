@@ -45,6 +45,11 @@ namespace Meadow.Foundation.Web.Maple
         public RequestProcessMode ThreadingMode { get; protected set; }
 
         /// <summary>
+        /// Resolver to find types which implement IRequestHandler.
+        /// </summary>
+        public IRequestHandlerResolver? RequestHandlerResolver { get; private set; }
+        
+        /// <summary>
         /// Whether or not the server should advertise it's name
         /// and IP via UDP for discovery.
         /// </summary>
@@ -77,8 +82,9 @@ namespace Meadow.Foundation.Web.Maple
             int port = DefaultPort,
             bool advertise = false,
             RequestProcessMode processMode = RequestProcessMode.Serial,
-            Logger logger = null)
-            : this(IPAddress.Parse(ipAddress), port, advertise, processMode, logger)
+            Logger? logger = null,
+            IRequestHandlerResolver? requestHandlerResolver = null)
+            : this(IPAddress.Parse(ipAddress), port, advertise, processMode, logger, requestHandlerResolver)
         {
         }
 
@@ -92,30 +98,37 @@ namespace Meadow.Foundation.Web.Maple
         /// <param name="processMode">Whether or not the server should respond to
         /// requests in parallel or serial. For Meadow, only Serial works
         /// reliably today.</param>
+        /// <param name="logger">Logger to write output information to.</param>
+        /// <param name="requestHandlerResolver">Resolver for request handler types.
+        /// By default, the AppDomainAssemblyRequestHandlerResolver is used.</param>
         public MapleServer(
             IPAddress ipAddress,
             int port = DefaultPort,
             bool advertise = false,
             RequestProcessMode processMode = RequestProcessMode.Serial,
-            Logger? logger = null)
+            Logger? logger = null,
+            IRequestHandlerResolver? requestHandlerResolver = null)
         {
             Logger = logger;
             MethodCache = new RequestMethodCache(Logger);
             ErrorPageGenerator = new ErrorPageGenerator();
 
-            Create(ipAddress, port, advertise, processMode);
+            Create(ipAddress, port, advertise, processMode, requestHandlerResolver);
         }
 
         private void Create(IPAddress ipAddress,
             int port,
             bool advertise,
-            RequestProcessMode processMode)
+            RequestProcessMode processMode,
+            IRequestHandlerResolver? requestHandlerResolver = null)
         {
             IPAddress = ipAddress ?? throw new ArgumentNullException(nameof(ipAddress));
             Port = port;
 
             Advertise = advertise;
             ThreadingMode = processMode;
+
+            RequestHandlerResolver = requestHandlerResolver;
 
             if (IPAddress.Equals(IPAddress.Any))
             {
@@ -238,28 +251,21 @@ namespace Meadow.Foundation.Web.Maple
         /// </summary>
         protected void LoadRequestHandlers()
         {
-            // Get classes that implement IRequestHandler
-            var assemblies = AppDomain.CurrentDomain.GetAssemblies();
+            var resolver = RequestHandlerResolver ?? new AppDomainAssemblyRequestHandlerResolver(Logger);
             var typesAdded = 0;
-
-            // loop through each assembly in the app and all the classes in it
-            foreach (var assembly in assemblies)
+            var resolvedTypes = resolver.Resolve();
+            foreach (var resolvedType in resolvedTypes)
             {
-                var types = assembly.GetTypes();
-                foreach (var t in types)
+                if (resolvedType.BaseType != null)
                 {
-                    // if it inherits `IRequestHandler`, add it to the list
-                    if (t.BaseType != null)
+                    if (resolvedType.BaseType.GetInterfaces().Contains(typeof(IRequestHandler)))
                     {
-                        if (t.BaseType.GetInterfaces().Contains(typeof(IRequestHandler)))
-                        {
-                            MethodCache.AddType(t);
-                            typesAdded++;
-                        }
+                        MethodCache.AddType(resolvedType);
+                        typesAdded++;
                     }
                 }
             }
-
+        
             if (typesAdded == 0)
             {
                 Console.WriteLine("Warning: No Maple Server `IRequestHandler`s found. Server will not operate.");
