@@ -127,7 +127,7 @@ namespace Meadow.Foundation.Web.Maple
                     if (ni.Address.AddressFamily == AddressFamily.InterNetwork)
                     {
                         // for now, just use IPv4
-                        Console.WriteLine($"Listening on http://{ni.Address}:{port}/");
+                        Logger?.Trace($"Listening on http://{ni.Address}:{port}/");
 
                         //                        _httpListener.Prefixes.Add($"http://{ni.Address}:{port}/");
                     }
@@ -137,7 +137,7 @@ namespace Meadow.Foundation.Web.Maple
             }
             else
             {
-                Console.WriteLine($"Listening on http://{IPAddress}:{port}/");
+                Logger?.Trace($"Listening on http://{IPAddress}:{port}/");
 
                 _httpListener.Prefixes.Add($"http://{IPAddress}:{port}/");
             }
@@ -180,6 +180,8 @@ namespace Meadow.Foundation.Web.Maple
                 StartUdpAdvertisement();
             }
             StartListeningToIncomingRequests();
+
+            Logger?.Info($"Maple started on IP Address: {IPAddress}");
         }
 
         /// <summary>
@@ -214,7 +216,7 @@ namespace Meadow.Foundation.Web.Maple
 
                         while (Running && _shouldAdvertise)
                         {
-                            Logger?.Info("UDP Broadcast: " + broadcastData + ", port: " + MAPLE_SERVER_BROADCASTPORT);
+                            Logger?.Trace("UDP Broadcast: " + broadcastData + ", port: " + MAPLE_SERVER_BROADCASTPORT);
                             socket.SendTo(UTF8Encoding.UTF8.GetBytes(broadcastData), remoteEndPoint);
 
                             Thread.Sleep(AdvertiseIntervalMs);
@@ -262,7 +264,7 @@ namespace Meadow.Foundation.Web.Maple
 
             if (typesAdded == 0)
             {
-                Console.WriteLine("Warning: No Maple Server `IRequestHandler`s found. Server will not operate.");
+                Logger?.Warn("Warning: No Maple Server `IRequestHandler`s found. Server will not operate.");
             }
             else
             {
