@@ -41,12 +41,12 @@ jobs:
         path: Meadow.Modbus
         ref: develop
 
-    - name: Checkout MQTTnet fork
+    - name: Checkout MQTTnet
       uses: actions/checkout@v3
       with:
         repository: WildernessLabs/MQTTnet
         path: MQTTnet
-        ref: meadow
+        ref: develop
         
     - name: Checkout Meadow.Core
       uses: actions/checkout@v3
