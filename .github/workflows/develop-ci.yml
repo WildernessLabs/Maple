@@ -3,8 +3,9 @@ name: Develop Build
 on:
   workflow_dispatch:
   pull_request:
+    branches: [ develop ]
   push:
-      branches: [ develop ]
+    branches: [ develop ]
 
 jobs:
   build:
